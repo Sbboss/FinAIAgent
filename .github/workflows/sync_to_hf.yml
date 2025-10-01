@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          fetch-depth: 0
           lfs: true        # needed if you store large png charts
       - name: Push to HF
         env:
