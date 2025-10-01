@@ -1,0 +1,14 @@
+langchain==0.3.27
+langchain-community==0.3.30
+langchain-core==0.3.76
+langchain-experimental==0.3.4
+langchain-google-genai==2.1.12
+langchain-openai==0.3.33
+langchain-text-splitters==0.3.11
+matplotlib==3.10.6
+matplotlib-inline==0.1.7
+numpy==2.3.3
+pandas==2.3.2
+pytest==8.4.2
+pytest-mock==3.15.1
+streamlit==1.50.0
