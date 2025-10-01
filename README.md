@@ -1,3 +1,13 @@
+---
+title: FinAI-Agent
+emoji: 💰
+colorFrom: indigo
+colorTo: green
+sdk: streamlit
+app_file: app.py
+pinned: false
+---
+
 # Finance-Agent 🤖💰
 
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)  
