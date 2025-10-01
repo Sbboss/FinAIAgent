@@ -1,0 +1,17 @@
+name: Sync to Hugging Face Space
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: true        # needed if you store large png charts
+      - name: Push to HF
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git push -f https://$GITHUB_ACTOR:$HF_TOKEN@huggingface.co/spaces/Sbboss/FinAIAgent main
