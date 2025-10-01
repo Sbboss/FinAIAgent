@@ -10,7 +10,7 @@ pinned: false
 
 # Finance-Agent 🤖💰
 
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)  
+[![Python](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)  
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-red)](https://streamlit.io/)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
