@@ -152,4 +152,4 @@ Caching behaviour (st.cache_resource)
 MIT — see LICENSE.
 Finance-Agent turns spreadsheets into strategy. Ask. Analyze. Act. ⚡
 
----
+--- 
