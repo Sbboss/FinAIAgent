@@ -15,6 +15,12 @@ jobs:
       - name: Remove content folder
         run: rm -rf content
 
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+
+
       - name: Commit remaining files
         run: |
           git add .
