@@ -12,14 +12,14 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      - name: Remove content folder and init repo
+      - name: Remove content folder
+        run: rm -rf content
+
+      - name: Commit remaining files
         run: |
-          rm -rf content
-          git init
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
           git add .
-          git commit -m "Deploy without content"
+          git commit -m "Deploy without content" || echo "No changes to commit"
+
 
       - name: Push to HF
         env:
