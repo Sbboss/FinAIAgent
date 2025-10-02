@@ -22,6 +22,8 @@ pinned: false
 **Finance-Agent** is your chat-native **CFO co-pilot**.  
 Ask plain-English questions about your company’s Excel ledger, and get **instant answers with context + charts**.
 
+![Demo](content/demo.mp4)
+
 ### Example
 
 You ➜ “Compare EBITDA and cash runway for Q1 vs Q2, convert EUR to USD.”
