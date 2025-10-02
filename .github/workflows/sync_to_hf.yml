@@ -18,6 +18,8 @@ jobs:
           git config user.email "action@github.com"
 
       - name: Create clean branch for HF
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git lfs install
           git lfs track "*.png"
