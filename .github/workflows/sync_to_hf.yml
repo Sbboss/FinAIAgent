@@ -17,20 +17,6 @@ jobs:
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
 
-      - name: Create clean branch for HF
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-          git lfs install
-          hf lfs-enable-largefiles .
-          git lfs track "*.png"
-          git lfs track "*.mp4"
-          git add .gitattributes
-          git add content/img.png
-          git add content/demo.mp4
-          git commit -m "a"
-          git push -f https://$GITHUB_ACTOR:$HF_TOKEN@huggingface.co/spaces/Sbboss/FinAIAgent main
-
       - name: Push to HF
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
