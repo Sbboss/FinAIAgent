@@ -22,6 +22,7 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git lfs install
+          hf lfs-enable-largefiles .
           git lfs track "*.png"
           git lfs track "*.mp4"
           git add .gitattributes
