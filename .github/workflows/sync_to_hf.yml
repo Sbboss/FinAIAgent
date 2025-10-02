@@ -12,12 +12,6 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      - name: Install Git LFS
-        run: |
-          sudo apt-get update
-          sudo apt-get install git-lfs
-          git lfs install
-
       - name: Remove content folder and init repo
         run: |
           rm -rf content
