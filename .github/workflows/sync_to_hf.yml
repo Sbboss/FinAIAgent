@@ -12,11 +12,6 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      - name: Configure Git
-        run: |
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
-
       - name: Push to HF
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
