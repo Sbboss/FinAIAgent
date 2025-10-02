@@ -25,6 +25,7 @@ jobs:
           git add .gitattributes
           git add content/img.png
           git add content/demo.mp4
+          git commit -m "a"
 
       - name: Push to HF
         env:
