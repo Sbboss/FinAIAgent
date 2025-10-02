@@ -23,10 +23,11 @@ jobs:
           git rm -rf .
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          # Add everything except content
-          git add --all
-          git reset content
+          # Copy only the files you want to push
+          cp -r agent app.py data.xlsx fixtures requirements.txt README.md LICENSE ./
+          git add .
           git commit -m "Deploy to HF without content"
+      
 
       - name: Push to HF
         env:
