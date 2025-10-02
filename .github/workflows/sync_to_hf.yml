@@ -23,6 +23,8 @@ jobs:
           git lfs track "*.png"
           git lfs track "*.mp4"
           git add .gitattributes
+          git add content/img.png
+          git add content/demo.mp4
 
       - name: Push to HF
         env:
