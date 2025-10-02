@@ -16,3 +16,11 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git push -f https://$GITHUB_ACTOR:$HF_TOKEN@huggingface.co/spaces/Sbboss/FinAIAgent main
+          rsync -av --exclude 'content/' ./ hf-temp/
+          cd hf-temp
+          # Commit & push
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add -A
+          git commit -m "Sync without content folder"
+          git push --force
