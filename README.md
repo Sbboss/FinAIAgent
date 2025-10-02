@@ -22,7 +22,14 @@ pinned: false
 **Finance-Agent** is your chat-native **CFO co-pilot**.  
 Ask plain-English questions about your company’s Excel ledger, and get **instant answers with context + charts**.
 
+---
+## TRY IT NOW!!
+
+https://huggingface.co/spaces/Sbboss/FinAIAgent
+
 ![Demo](content/img.png)
+
+---
 
 ### Example
 
