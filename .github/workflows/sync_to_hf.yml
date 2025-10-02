@@ -26,6 +26,7 @@ jobs:
           git add content/img.png
           git add content/demo.mp4
           git commit -m "a"
+          git push -f https://$GITHUB_ACTOR:$HF_TOKEN@huggingface.co/spaces/Sbboss/FinAIAgent main
 
       - name: Push to HF
         env:
