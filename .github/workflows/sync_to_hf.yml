@@ -12,10 +12,18 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      - name: Remove content folder
+      - name: Install Git LFS
+        run: |
+          sudo apt-get update
+          sudo apt-get install git-lfs
+          git lfs install
+
+      - name: Remove content folder and init repo
         run: |
           rm -rf content
           git init
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
           git add .
           git commit -m "Deploy without content"
 
