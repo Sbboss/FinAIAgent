@@ -21,10 +21,11 @@ jobs:
         run: |
           git checkout --orphan hf-deploy
           git rm -rf .
-          # Copy only the files you want to push
-          cp -r * .[^.]* ../tempdeploy/ || true
-          mv ../tempdeploy/* .
-          git add .
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          # Add everything except content
+          git add --all
+          git reset content
           git commit -m "Deploy to HF without content"
 
       - name: Push to HF
