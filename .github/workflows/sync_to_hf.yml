@@ -20,13 +20,9 @@ jobs:
       - name: Create clean branch for HF
         run: |
           git checkout --orphan hf-deploy
-          git rm -rf .
+          git rm -rf content
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          # Copy only the files you want to push
-          cp -r agent app.py data.xlsx fixtures requirements.txt README.md LICENSE ./
-          git add .
-          git commit -m "Deploy to HF without content"
       
 
       - name: Push to HF
