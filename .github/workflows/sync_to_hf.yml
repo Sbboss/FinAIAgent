@@ -2,13 +2,14 @@ name: Sync to Hugging Face Space
 on:
   push:
     branches: [main]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # full history
+          fetch-depth: 0
           lfs: true
 
       - name: Configure Git
@@ -16,16 +17,18 @@ jobs:
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
 
-      - name: Remove content folder
-        run: rm -rf content
-
-      - name: Commit changes
+      - name: Create clean branch for HF
         run: |
+          git checkout --orphan hf-deploy
+          git rm -rf .
+          # Copy only the files you want to push
+          cp -r * .[^.]* ../tempdeploy/ || true
+          mv ../tempdeploy/* .
           git add .
-          git commit -m "Deploy without content" || echo "No changes to commit"
+          git commit -m "Deploy to HF without content"
 
       - name: Push to HF
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git push -f https://$GITHUB_ACTOR:$HF_TOKEN@huggingface.co/spaces/Sbboss/FinAIAgent main
+          git push -f https://$GITHUB_ACTOR:$HF_TOKEN@huggingface.co/spaces/Sbboss/FinAIAgent hf-deploy:main
