@@ -10,17 +10,17 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          lfs: true        # needed if you store large png charts
+          lfs: true
+
+      - name: Remove content folder
+        run: |
+          rm -rf content
+          git init
+          git add .
+          git commit -m "Deploy without content"
+
       - name: Push to HF
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git push -f https://$GITHUB_ACTOR:$HF_TOKEN@huggingface.co/spaces/Sbboss/FinAIAgent main
-          rsync -av --exclude 'content/' ./ hf-temp/
-          cd hf-temp
-          # Commit & push
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          git add -A
-          git commit -m "Sync without content folder"
-          git push --force
