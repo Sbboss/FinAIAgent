@@ -2,30 +2,27 @@ name: Sync to Hugging Face Space
 on:
   push:
     branches: [main]
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # full history
           lfs: true
-
-      - name: Remove content folder
-        run: rm -rf content
 
       - name: Configure Git
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
 
+      - name: Remove content folder
+        run: rm -rf content
 
-      - name: Commit remaining files
+      - name: Commit changes
         run: |
           git add .
           git commit -m "Deploy without content" || echo "No changes to commit"
-
 
       - name: Push to HF
         env:
