@@ -19,11 +19,10 @@ jobs:
 
       - name: Create clean branch for HF
         run: |
-          git checkout --orphan hf-deploy
-          git rm -rf content
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
-      
+          git lfs install
+          git lfs track "*.png"
+          git lfs track "*.mp4"
+          git add .gitattributes
 
       - name: Push to HF
         env:
