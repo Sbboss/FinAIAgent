@@ -1,11 +1,14 @@
 import streamlit as st
-import sys
+import sys, os
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_openai_tools_agent, AgentExecutor
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.tools import tool
 from langchain_experimental.tools.python.tool import PythonREPLTool
 from . import utils
+
+GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
+
 
 
 python_repl = PythonREPLTool(python_path=sys.executable)
@@ -119,13 +122,13 @@ def initialize_agent():
 
     try:
         gemini_client = ChatOpenAI(
-            api_key=st.secrets["GOOGLE_API_KEY"],
+            api_key=GEMINI_API_KEY,
             base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
             model="gemini-2.5-flash",
             temperature=0.2
         )
     except (KeyError, FileNotFoundError):
-        st.error("GOOGLE_API_KEY not found. Please add it to your .streamlit/secrets.toml file.")
+        st.error("GOOGLE_API_KEY not found.")
         st.stop()
 
     # --- Tool Definitions ---
