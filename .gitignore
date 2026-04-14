@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Local scratch files
+URL.rtf
+a.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Streamlit secrets
+.streamlit/secrets.toml
